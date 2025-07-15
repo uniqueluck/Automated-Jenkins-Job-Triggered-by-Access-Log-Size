@@ -63,7 +63,7 @@ Perfect for **beginners** who want to practice AWS, Jenkins, and shell scripting
 ```
 
 📸 **Screenshot: Architecture Diagram**  
-![Architecture Diagram](screenshots/architecture-diagram.png)
+![Architecture Diagram](Screenshots/DIAGRAM.jpg)
 
 ---
 
