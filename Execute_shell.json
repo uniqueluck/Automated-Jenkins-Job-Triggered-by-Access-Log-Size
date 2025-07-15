@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "===== Starting upload-to-s3 ====="
+
+# Path to log file
+LOG_FILE="/var/lib/jenkins/access.log"
+BUCKET_NAME="access-log-backup-bucket"
+
+# Debug: list Jenkins workspace
+echo "🔍 Listing /var/lib/jenkins:"
+ls -lh /var/lib/jenkins
+
+# Check if log file exists
+if [ -f "$LOG_FILE" ]; then
+    echo "📦 Found log file: $LOG_FILE"
+    echo "📤 Uploading to S3 bucket: $BUCKET_NAME"
+
+    aws s3 cp "$LOG_FILE" "s3://$BUCKET_NAME/"
+    if [ $? -eq 0 ]; then
+        echo "✅ Upload successful. Clearing log file..."
+        > "$LOG_FILE"
+    else
+        echo "❌ Upload failed. Check AWS CLI and permissions."
+        exit 1
+    fi
+else
+    echo "❌ Log file $LOG_FILE does not exist. Exiting."
+    exit 1
+fi
+
+echo "===== Finished upload-to-s3 ====="
+
+
+
