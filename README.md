@@ -51,16 +51,7 @@ Perfect for **beginners** who want to practice AWS, Jenkins, and shell scripting
 
 ## 🖥️ Architecture Overview
 
-```
-+-------------------------+     Trigger (if >1GB)     +---------------+
-| EC2 Instance            |-------------------------->| Jenkins Job   |
-| log_monitor.sh (cron)   |                           | upload-to-s3  |
-+-------------------------+                           +---------------+
-        |                                                        |
-        |                                                        v
-        |---------------------------------------------> AWS S3 Bucket
-                          Upload & Clear
-```
+
 
 📸 **Screenshot: Architecture Diagram**  
 ![Architecture Diagram](Screenshots/DIAGRAM.jpg)
