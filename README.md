@@ -96,7 +96,7 @@ Launch an Amazon Linux  EC2 instance.
 SSH into the instance.
 
 📸 **Screenshot: EC2 Instance Details**  
-![EC2 Instance](screenshots/ec2-instance.png)
+![EC2 Instance](Screenshots/EC2_Instance.png)
 
 ---
 
@@ -116,7 +116,7 @@ sudo systemctl start jenkins
 - Access Jenkins in browser: `http://<EC2_PUBLIC_IP>:8080`  
 
 📸 **Screenshot: Jenkins Dashboard**  
-![Jenkins Dashboard](screenshots/jenkins-dashboard.png)
+![Jenkins Dashboard](Screenshots/jenkins-dashboard.png)
 
 ---
 
@@ -126,9 +126,8 @@ Configure AWS CLI on your EC2 instance:
 ```bash
 aws configure
 ```
-📸 **Screenshot: AWS CLI Configuration**  
-![AWS CLI Configure](screenshots/aws-cli-configure.png)
 
+Enter your AWS Access Key, Secret Key, region (e.g., ap-south-1), and output format (json).
 ---
 
 ### 4️⃣ Create an S3 Bucket
@@ -136,7 +135,7 @@ aws configure
 Go to AWS S3 Console → Create a bucket (e.g., `access-log-backup-bucket`).  
 
 📸 **Screenshot: S3 Bucket Created**  
-![S3 Bucket](screenshots/s3-bucket-created.png)
+![S3 Bucket](Screenshots/s3_bucket.png)
 
 ---
 
@@ -169,7 +168,7 @@ fi
 ```
 
 📸 **Screenshot: log_monitor.sh**  
-![Log Monitor Script](screenshots/log-monitor-script.png)
+![Log Monitor Script](Screenshots/log-monitor-script.png.png)
 
 ---
 
@@ -181,7 +180,7 @@ Run `crontab -e` and add this line:
 ```
 
 📸 **Screenshot: Cron Job Configuration**  
-![Cron Job](screenshots/cron-job-configuration.png)
+![Cron Job](Screenshots/cron-job-configuration.png)
 
 ---
 
@@ -190,13 +189,13 @@ Run `crontab -e` and add this line:
 #### 📌 General Tab
 Name the job: `upload-to-s3`  
 📸 **Screenshot: Jenkins General Tab**  
-![General Tab](screenshots/jenkins-general-tab-settings.png)
+![General Tab](Screenshots/jenkins-general-tab-settings.png)
 
 #### 📌 Build Triggers
 Enable: “Trigger builds remotely”  
 Token: `monitoring-script-token`  
-📸 **Screenshot: Jenkins Build Trigger Settings**  
-![Build Trigger](screenshots/jenkins-build-trigger-settings.png)
+📸 **Screenshot: Jenkins Build Trigger Setting**  
+![Build Trigger](Screenshots/jenkins-build-trigger-settings.png)
 
 #### 📌 Build Step
 Add **Execute Shell** step:  
@@ -214,7 +213,7 @@ else
 fi
 ```
 📸 **Screenshot: Jenkins Execute Shell**  
-![Execute Shell](screenshots/jenkins-execute-shell-configuration.png)
+![Execute Shell](Screenshots/jenkins-execute-shell-configuration.png)
 
 ---
 
@@ -223,7 +222,7 @@ fi
 When log file exceeds 1GB, it triggers the Jenkins job automatically.  
 
 📸 **Screenshot: log_monitor.sh Trigger Output**  
-![Trigger Jenkins](screenshots/log-monitor-triggering-jenkins.png)
+![Trigger Jenkins](Screenshots/log-monitor-script.png.png)
 
 ---
 
@@ -232,7 +231,11 @@ When log file exceeds 1GB, it triggers the Jenkins job automatically.
 Check Jenkins build logs for successful upload.  
 
 📸 **Screenshot: Jenkins Console Log**  
-![Console Log](screenshots/jenkins-build-console-log.png)
+![Console Log](Screenshots/jenkins-job-triggered.png)
+
+![Console Log](Screenshots/jenkins-job-triggered_2.png)
+
+![Console Log](Screenshots/jenkins-job-triggered_3.png)
 
 ---
 
@@ -241,7 +244,7 @@ Check Jenkins build logs for successful upload.
 Check S3 bucket for the uploaded log file.  
 
 📸 **Screenshot: S3 Upload**  
-![S3 Upload](screenshots/s3-bucket-upload.png)
+![S3 Upload](Screenshots/s3-upload-success.png.png)
 
 ---
 
@@ -250,7 +253,7 @@ Check S3 bucket for the uploaded log file.
 After successful upload, verify log file is cleared.  
 
 📸 **Screenshot: Cleared Log File**  
-![Cleared Log](screenshots/cleared-log-file-confirmation.png)
+![Cleared Log](Screenshots/cleared-log-file-confirmation.png)
 
 ---
 
