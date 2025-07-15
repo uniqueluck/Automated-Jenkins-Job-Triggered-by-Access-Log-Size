@@ -113,12 +113,12 @@ sudo systemctl start jenkins
 
 ### 3️⃣ Configure AWS CLI
 
-Configure AWS CLI on your EC2 instance:  
+Configure AWS CLI on your EC2 instance:  Enter your AWS Access Key, Secret Key, region (e.g., ap-south-1), and output format (json).
 ```bash
 aws configure
 ```
 
-Enter your AWS Access Key, Secret Key, region (e.g., ap-south-1), and output format (json).
+
 ---
 
 ### 4️⃣ Create an S3 Bucket
@@ -132,7 +132,7 @@ Go to AWS S3 Console → Create a bucket (e.g., `access-log-backup-bucket`).
 
 ### 5️⃣ Write `log_monitor.sh` Script
 
-This script monitors log file size and triggers the Jenkins job.
+This script monitors log file size and triggers the Jenkins job. 
 
 📄 **log_monitor.sh**
 ```bash
